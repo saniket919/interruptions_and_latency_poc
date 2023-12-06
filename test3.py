@@ -1,28 +1,23 @@
 import pyttsx3
 import threading
 import speech_recognition as sr
-import nltk
-from nltk.corpus import words
-print('1')
-# Download the words dataset for language detection
-nltk.download('words')
-print('2')
+
 # Initialize the speech synthesis engine
 engine = pyttsx3.init()
 engine.setProperty('rate', 90)
-print('3')
+
 # Initialize the speech recognition engine
 recognizer = sr.Recognizer()
 
 # Flag to signal interruption
 is_interrupted = False
 
-# Set of English words for language detection
-english_words = set(words.words())
+# Set of common English words for language detection
+english_words = {"stop", "hello", "world", "example", "test"}  
 
 def is_english_text(text):
-    words_in_text = nltk.wordpunct_tokenize(text)
-    return all(word.lower() in english_words for word in words_in_text)
+    words_in_text = text.lower().split()
+    return any(word in english_words for word in words_in_text)
 
 def speak_thread(text):
     global is_interrupted
@@ -52,7 +47,7 @@ def listen_user_input():
 
 def main():
     # Create a thread for speaking
-    speak_text = "This is a test. Speaking slowly now."
+    speak_text = "This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. This is a test of multithreading and interruption handeling POC by Verbalyze. "
     speak_thread_instance = threading.Thread(target=speak_thread, args=(speak_text,))
 
     # Create a thread for listening to user input
