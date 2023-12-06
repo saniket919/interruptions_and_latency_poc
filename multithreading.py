@@ -41,14 +41,13 @@ while True:
     time.sleep(0.1)  # Sleep for a short time to allow the speaking thread to start
 
 
-'''getting the below error while switching to listening mode
+# errorcode='''getting the below error while switching to listening mode
 
-Traceback (most recent call last):
-  File "d:\programming\Verbalyze\interruptions and latency POCs\multithreading.py", line 37, in <module>
-    text = listen_and_transcribe()
-  File "d:\programming\Verbalyze\interruptions and latency POCs\multithreading.py", line 22, in listen_and_transcribe 
-    text = r.recognize_google(audio_data)
-  File "C:\Users\dixit\AppData\Local\Programs\Python\Python310\lib\site-packages\speech_recognition\__init__.py", line 858, in recognize_google
-    if not isinstance(actual_result, dict) or len(actual_result.get("alternative", [])) == 0: raise UnknownValueError()
-speech_recognition.UnknownValueError
-'''
+# Traceback (most recent call last):
+#   File "d:\programming\Verbalyze\interruptions and latency POCs\multithreading.py", line 37, in <module>
+#     text = listen_and_transcribe()
+#   File "d:\programming\Verbalyze\interruptions and latency POCs\multithreading.py", line 22, in listen_and_transcribe 
+#     text = r.recognize_google(audio_data)
+#   File "C:\Users\dixit\AppData\Local\Programs\Python\Python310\lib\site-packages\speech_recognition\__init__.py", line 858, in recognize_google
+#     if not isinstance(actual_result, dict) or len(actual_result.get("alternative", [])) == 0: raise UnknownValueError()
+# speech_recognition.UnknownValueError'''
