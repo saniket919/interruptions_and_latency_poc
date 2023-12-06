@@ -1,14 +1,10 @@
-import pyttsx3
-
-# Initialize the speech synthesis engine
-engine = pyttsx3.init()
+from gtts import gTTS
+from playsound import playsound
 
 def speak(text):
-    # Use the engine to say the text
-    engine.say(text)
-    # Wait for the speech to complete
-    engine.runAndWait()
+    tts = gTTS(text=text, lang='en')
+    filename = 'voice.mp3'
+    tts.save(filename)
+    playsound(filename)
 
-# Test the function
-speak("Hello, how are you?")
-print('done')
+speak('Hello, how are you?')

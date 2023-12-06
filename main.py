@@ -29,3 +29,5 @@ while True:
     text = listen_and_transcribe()
     print(f"You said: {text}")
     speak(text)
+
+#Problem in main code thread
